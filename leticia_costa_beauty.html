@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leticia Costa Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:    #C8848A;
+      --rose-lt: #E8B4B8;
+      --nude:    #E8C4B0;
+      --cocoa:   #4A2C2A;
+      --cream:   #FAF6F3;
+      --gold:    #D4A96A;
+      --white:   #FFFFFF;
+      --text:    #3A2424;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(160deg, #f5e6e0 0%, #ead5d0 40%, #d9a8ae 100%);
+      padding: 60px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(212,169,106,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(200,132,138,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--rose), #c06);
+      z-index: 0;
+    }
+
+    .avatar-initials {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--cream);
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, #d9a8ae, #c8848a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(212,169,106,0.35);
+      color: var(--cocoa);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--cocoa);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .hero h1 span { color: var(--rose); }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: #7a4a4a;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .hero-sparkle {
+      display: inline-block;
+      animation: sparkle 2.5s ease-in-out infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      50% { transform: scale(1.2) rotate(15deg); opacity: 0.8; }
+    }
+
+    /* ===== SOBRE ===== */
+    .section {
+      padding: 40px 24px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--cocoa);
+      margin-bottom: 14px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+      border-radius: 2px;
+    }
+
+    .sobre-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 24px rgba(200,132,138,0.12);
+      margin-top: 20px;
+      border: 1px solid rgba(200,132,138,0.1);
+    }
+
+    .sobre-card p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: #5a3838;
+    }
+
+    .sobre-card p + p { margin-top: 12px; }
+    .sobre-card strong { color: var(--cocoa); }
+
+    /* ===== SERVIÇOS ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .service-pill {
+      background: var(--white);
+      border: 1.5px solid rgba(200,132,138,0.2);
+      border-radius: 16px;
+      padding: 18px 12px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(200,132,138,0.08);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .service-pill:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(200,132,138,0.2);
+    }
+
+    .service-pill .svc-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(200,132,138,0.15), rgba(212,169,106,0.12));
+      margin: 0 auto 10px;
+      color: var(--rose);
+    }
+
+    .service-pill .svc-icon i {
+      font-size: 22px;
+    }
+
+    .service-pill .svc-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--cocoa);
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+
+    /* ===== LINKS ===== */
+    .links-section {
+      background: linear-gradient(170deg, #fdf0ec, #f5ddd8);
+      padding: 40px 24px;
+    }
+
+    .links-inner { max-width: 480px; margin: 0 auto; }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 16px 22px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: transform 0.22s, box-shadow 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-btn .btn-arrow {
+      position: absolute;
+      right: 22px;
+      font-size: 20px;
+      opacity: 0.6;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+    }
+
+    .link-btn:active { transform: translateY(0); }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+    }
+
+    .btn-instagram {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(220,39,67,0.3);
+    }
+
+    .btn-agenda {
+      background: linear-gradient(135deg, var(--rose), #b06070);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(200,132,138,0.4);
+    }
+
+    .btn-loc {
+      background: var(--white);
+      color: var(--cocoa);
+      border: 1.5px solid rgba(200,132,138,0.3);
+      box-shadow: 0 4px 14px rgba(200,132,138,0.1);
+    }
+
+    .btn-icon-wrap {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .btn-loc .btn-icon-wrap {
+      background: rgba(200,132,138,0.12);
+      color: var(--rose);
+    }
+
+    .btn-icon-wrap i { font-size: 20px; }
+
+    .btn-text { display: flex; flex-direction: column; gap: 1px; text-align: left; }
+    .btn-label { font-size: 14px; font-weight: 700; }
+    .btn-sub { font-size: 11.5px; font-weight: 400; opacity: 0.8; }
+
+    /* ===== CONTEÚDO ===== */
+    .content-section {
+      padding: 40px 0;
+    }
+
+    .content-section-title {
+      padding: 0 24px;
+      max-width: 480px;
+      margin: 0 auto 20px;
+    }
+
+    .reels-outer {
+      max-width: 480px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 0;
+    }
+
+    .reels-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 24px 16px;
+      scrollbar-width: none;
+    }
+
+    .reels-scroll::-webkit-scrollbar { display: none; }
+
+    .reel-card {
+      width: 140px;
+      min-width: 140px;
+      height: 200px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      flex-grow: 0;
+      box-shadow: 0 4px 16px rgba(74,44,42,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    .reel-card:nth-child(1) { background: linear-gradient(160deg, #e8d5d0, #c8848a); }
+    .reel-card:nth-child(2) { background: linear-gradient(160deg, #3a2424, #6a3c3c); }
+    .reel-card:nth-child(3) { background: linear-gradient(160deg, #d9c5b0, #b09070); }
+    .reel-card:nth-child(4) { background: linear-gradient(160deg, #f0e0dc, #d4a0a8); }
+
+    .reel-play {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .reel-play i { font-size: 20px; color: #fff; }
+
+    .reel-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    /* ===== DEPOIMENTOS ===== */
+    .depo-section {
+      background: var(--cocoa);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .depo-inner { max-width: 480px; margin: 0 auto; }
+
+    .depo-section .section-title { color: var(--cream); }
+    .depo-section .section-title::after {
+      background: linear-gradient(90deg, var(--gold), var(--rose-lt));
+    }
+
+    .depo-cards {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 20px 24px 10px;
+      scrollbar-width: none;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .depo-cards::-webkit-scrollbar { display: none; }
+
+    .depo-card {
+      min-width: 220px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 20px 18px;
+      text-align: left;
+    }
+
+    .depo-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 10px;
+      color: var(--gold);
+    }
+
+    .depo-stars i { font-size: 14px; }
+
+    .depo-text {
+      font-size: 13px;
+      color: #e8d0cc;
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .depo-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--rose-lt);
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .depo-name i { font-size: 14px; opacity: 0.7; }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      padding: 56px 24px 48px;
+      text-align: center;
+      background: linear-gradient(170deg, #fdf0ec, #ead5d0);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-deco {
+      position: absolute;
+      top: 20px; right: 24px;
+      color: var(--rose-lt);
+      opacity: 0.3;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .cta-deco i { font-size: 48px; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .cta-inner { max-width: 400px; margin: 0 auto; }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--cocoa);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .cta-section p {
+      font-size: 14px;
+      color: #7a4a4a;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--rose), #b06070);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(200,132,138,0.45);
+      transition: transform 0.22s, box-shadow 0.22s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn i { font-size: 20px; }
+
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 36px rgba(200,132,138,0.55);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--cocoa);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 480px; margin: 0 auto; }
+
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .footer-sub {
+      font-size: 12px;
+      color: var(--rose-lt);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .social-icon {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--cream);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .social-icon i { font-size: 20px; }
+
+    .social-icon:hover {
+      background: rgba(255,255,255,0.18);
+      transform: scale(1.1);
+    }
+
+    .footer-loc {
+      font-size: 12px;
+      color: rgba(232,192,176,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .footer-loc i { font-size: 14px; color: rgba(232,192,176,0.8); }
+    .footer-loc span { color: rgba(232,192,176,0.9); }
+
+    /* ===== FADE IN ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="avatar-wrap">
+      <div class="avatar-initials">LC</div>
+    </div>
+    <div class="hero-badge">
+      <i class="ti ti-sparkles" style="font-size:13px;"></i>
+      Especialista em Sobrancelhas
+      <i class="ti ti-sparkles" style="font-size:13px;"></i>
+    </div>
+    <h1>Leticia <span>Costa</span><br/>Beauty <span class="hero-sparkle"><i class="ti ti-star-filled" style="font-size:24px; color:var(--gold);"></i></span></h1>
+    <p class="hero-tagline">Prazer, eu recupero sobrancelhas —<br/>e transformo olhares.</p>
+  </section>
+
+  <!-- SOBRE -->
+  <div class="section fade-in">
+    <h2 class="section-title">Quem é Leticia?</h2>
+    <div class="sobre-card">
+      <p>Sou a <strong>Leticia Costa</strong>, especialista em design e recuperação de sobrancelhas em <strong>Batatais/SP</strong>. Meu trabalho vai muito além de um procedimento — é cuidado, técnica e atenção ao que é único em cada rosto.</p>
+      <p>Atendo mulheres que querem <strong>sobrancelhas que realmente combinem com elas</strong>: naturais, definidas e com personalidade. Cada atendimento é personalizado, do início ao fim.</p>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <div class="section fade-in" style="padding-top:0">
+    <h2 class="section-title">O que eu faço</h2>
+    <div class="services-grid">
+
+      <div class="service-pill">
+        <div class="svc-icon">
+          <!-- Régua / compasso — design/medição -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/>
+            <path d="M13 13l6 6"/>
+          </svg>
+        </div>
+        <span class="svc-name">Design de Sobrancelha</span>
+      </div>
+
+      <div class="service-pill">
+        <div class="svc-icon">
+          <!-- Folha/planta — reconstrução/crescimento -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22V12"/>
+            <path d="M12 12C12 8 14.5 4.5 19 3c0 4.5-2.5 8-7 9z"/>
+            <path d="M12 12C12 8 9.5 4.5 5 3c0 4.5 2.5 8 7 9z"/>
+          </svg>
+        </div>
+        <span class="svc-name">Reconstrução de Sobrancelha</span>
+      </div>
+
+      <div class="service-pill">
+        <div class="svc-icon">
+          <!-- Gota d'água — spa/hidratação -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.5 9 5 13 5 15.5a7 7 0 0 0 14 0C19 13 17.5 9 12 2z"/>
+            <path d="M8.5 16.5a3.5 3.5 0 0 0 5.5 0"/>
+          </svg>
+        </div>
+        <span class="svc-name">SPA de Sobrancelhas</span>
+      </div>
+
+      <div class="service-pill">
+        <div class="svc-icon">
+          <!-- Ondas — laminação -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 8c1.5 0 3-1 4.5-1s3 1 4.5 1 3-1 4.5-1 3 1 4.5 1"/>
+            <path d="M2 12c1.5 0 3-1 4.5-1s3 1 4.5 1 3-1 4.5-1 3 1 4.5 1"/>
+            <path d="M2 16c1.5 0 3-1 4.5-1s3 1 4.5 1 3-1 4.5-1 3 1 4.5 1"/>
+          </svg>
+        </div>
+        <span class="svc-name">Brow Lamination</span>
+      </div>
+
+      <div class="service-pill">
+        <div class="svc-icon">
+          <!-- Olho — lash lifting -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M9 6.5l1 2M12 5v2M15 6.5l-1 2"/>
+          </svg>
+        </div>
+        <span class="svc-name">Lash Lifting</span>
+      </div>
+
+      <div class="service-pill">
+        <div class="svc-icon">
+          <!-- Diamante — hidra gloss/brilho -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.7 10.3L8 4h8l5.3 6.3L12 20z"/>
+            <path d="M8 4l4 16M16 4l-4 16M2.7 10.3h18.6"/>
+          </svg>
+        </div>
+        <span class="svc-name">Hidra Gloss</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="links-section">
+    <div class="links-inner fade-in">
+      <h2 class="section-title" style="display:block;margin-bottom:20px;">Fale comigo</h2>
+
+      <a href="https://wa.me/message/XR4MXGPBXEOAC1" class="link-btn btn-whatsapp" target="_blank">
+        <div class="btn-icon-wrap">
+          <i class="ti ti-brand-whatsapp"></i>
+        </div>
+        <span class="btn-text">
+          <span class="btn-label">WhatsApp</span>
+          <span class="btn-sub">Agende seu horário agora</span>
+        </span>
+        <i class="ti ti-chevron-right btn-arrow"></i>
+      </a>
+
+      <a href="https://instagram.com/leticiaccostabeauty" class="link-btn btn-instagram" target="_blank">
+        <div class="btn-icon-wrap">
+          <i class="ti ti-brand-instagram"></i>
+        </div>
+        <span class="btn-text">
+          <span class="btn-label">Instagram</span>
+          <span class="btn-sub">Veja os resultados no feed</span>
+        </span>
+        <i class="ti ti-chevron-right btn-arrow"></i>
+      </a>
+
+      <a href="https://wa.me/message/XR4MXGPBXEOAC1" class="link-btn btn-agenda" target="_blank">
+        <div class="btn-icon-wrap">
+          <i class="ti ti-calendar-event"></i>
+        </div>
+        <span class="btn-text">
+          <span class="btn-label">Agenda Online</span>
+          <span class="btn-sub">Verifique datas disponíveis</span>
+        </span>
+        <i class="ti ti-chevron-right btn-arrow"></i>
+      </a>
+
+      <a href="https://maps.google.com/?q=Jose+Elias+Thame+225,+Batatais+SP" class="link-btn btn-loc" target="_blank">
+        <div class="btn-icon-wrap">
+          <i class="ti ti-map-pin"></i>
+        </div>
+        <span class="btn-text">
+          <span class="btn-label">Como chegar</span>
+          <span class="btn-sub">Jose Elias Thame 225 — Batatais/SP</span>
+        </span>
+        <i class="ti ti-chevron-right btn-arrow" style="color:var(--rose); opacity:0.5;"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO EM DESTAQUE -->
+  <div class="content-section fade-in">
+    <div class="content-section-title">
+      <h2 class="section-title">Conteúdo em Destaque</h2>
+    </div>
+    <div class="reels-outer">
+    <div class="reels-scroll">
+      <div class="reel-card">
+        <div class="reel-play"><i class="ti ti-player-play-filled"></i></div>
+        <span class="reel-label">Reconstrução de Sobrancelha</span>
+      </div>
+      <div class="reel-card">
+        <div class="reel-play"><i class="ti ti-player-play-filled"></i></div>
+        <span class="reel-label">Antes x Depois Brow Lamination</span>
+      </div>
+      <div class="reel-card">
+        <div class="reel-play"><i class="ti ti-player-play-filled"></i></div>
+        <span class="reel-label">Lash Lifting Perfeito</span>
+      </div>
+      <div class="reel-card">
+        <div class="reel-play"><i class="ti ti-player-play-filled"></i></div>
+        <span class="reel-label">Quem é Leticia Costa Beauty?</span>
+      </div>
+      <div style="min-width:8px;flex-shrink:0;"></div>
+    </div>
+    </div>
+  </div>
+
+  <!-- DEPOIMENTOS -->
+  <div class="depo-section fade-in">
+    <div class="depo-inner">
+      <h2 class="section-title">O que dizem as clientes</h2>
+      <div class="depo-cards">
+
+        <div class="depo-card">
+          <div class="depo-stars">
+            <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+          </div>
+          <p class="depo-text">"Minhas sobrancelhas nunca foram tão lindas! A Leticia entende exatamente o que você precisa."</p>
+          <span class="depo-name"><i class="ti ti-user-circle"></i> Ana P.</span>
+        </div>
+
+        <div class="depo-card">
+          <div class="depo-stars">
+            <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+          </div>
+          <p class="depo-text">"Ambiente acolhedor, resultado incrível. Virei cliente fiel! Recomendo de olhos fechados."</p>
+          <span class="depo-name"><i class="ti ti-user-circle"></i> Julia M.</span>
+        </div>
+
+        <div class="depo-card">
+          <div class="depo-stars">
+            <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i>
+          </div>
+          <p class="depo-text">"A Brow Lamination mudou minha rotina! Acordo pronta todo dia. Amo o trabalho dela."</p>
+          <span class="depo-name"><i class="ti ti-user-circle"></i> Camila R.</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section fade-in">
+    <div class="cta-deco"><i class="ti ti-sparkles"></i></div>
+    <div class="cta-inner">
+      <h2>Pronta para<br/><em>transformar seu olhar?</em></h2>
+      <p>Agende agora pelo WhatsApp e descubra o que umas sobrancelhas bem cuidadas podem fazer por você. Atendo em Batatais/SP com horários exclusivos.</p>
+      <a href="https://wa.me/message/XR4MXGPBXEOAC1" class="cta-btn" target="_blank">
+        <i class="ti ti-brand-whatsapp"></i>
+        Quero agendar agora
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">Leticia Costa Beauty</p>
+      <p class="footer-sub">Especialista em Sobrancelhas</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/leticiaccostabeauty" class="social-icon" target="_blank" title="Instagram">
+          <i class="ti ti-brand-instagram"></i>
+        </a>
+        <a href="https://wa.me/message/XR4MXGPBXEOAC1" class="social-icon" target="_blank" title="WhatsApp">
+          <i class="ti ti-brand-whatsapp"></i>
+        </a>
+        <a href="https://maps.google.com/?q=Jose+Elias+Thame+225,+Batatais+SP" class="social-icon" target="_blank" title="Localização">
+          <i class="ti ti-map-pin"></i>
+        </a>
+      </div>
+      <p class="footer-loc">
+        <i class="ti ti-map-pin"></i>
+        <span>Jose Elias Thame 225</span> · Batatais, SP · 14300-033
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  </script>
+</body>
+</html>
